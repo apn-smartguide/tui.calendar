@@ -66,8 +66,8 @@ function calculatePopupPosition(
   }
 
   return {
-    top: top + window.scrollY,
-    left: Math.max(left, layoutRect.left) + window.scrollX,
+    top: top + window.scrollY - layoutRect.top,
+    left: Math.max(left, layoutRect.left) + window.scrollX - layoutRect.left,
     direction,
   };
 }

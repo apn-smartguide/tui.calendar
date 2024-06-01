@@ -37,21 +37,9 @@ const classNames = {
 };
 
 function calculatePopupPosition(eventRect: Rect, layoutRect: Rect, popupRect: Rect) {
-  let top = eventRect.top + eventRect.height / 2 - popupRect.height / 2;
-  let left = eventRect.left + eventRect.width;
-
-  if (isTopOutOfLayout(top, layoutRect, popupRect)) {
-    top = layoutRect.top + layoutRect.height - popupRect.height;
-  }
-
-  if (isLeftOutOfLayout(left, layoutRect, popupRect)) {
-    left = eventRect.left - popupRect.width;
-  }
-
-  return [
-    Math.max(top, layoutRect.top) + window.scrollY - layoutRect.top,
-    Math.max(left, layoutRect.left) + window.scrollX - layoutRect.left,
-  ];
+  const top = layoutRect.height / 2 - popupRect.height / 2;
+  const left = layoutRect.width / 2 - popupRect.width / 2;
+  return [top, left];
 }
 
 function calculatePopupArrowPosition(eventRect: Rect, layoutRect: Rect, popupRect: Rect) {

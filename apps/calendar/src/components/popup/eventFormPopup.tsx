@@ -48,28 +48,16 @@ function calculatePopupPosition(
   layoutRect: Rect,
   popupRect: Rect
 ) {
-  let top = popupArrowPointPosition.top - popupRect.height - HALF_OF_POPUP_ARROW_HEIGHT;
-  let left = popupArrowPointPosition.left - popupRect.width / 2;
-  let direction = FormPopupArrowDirection.bottom;
-
-  if (top < layoutRect.top) {
-    direction = FormPopupArrowDirection.top;
-    top = popupArrowPointPosition.top + HALF_OF_POPUP_ARROW_HEIGHT;
-  }
-
-  if (isTopOutOfLayout(top, layoutRect, popupRect)) {
-    top = layoutRect.top + layoutRect.height - popupRect.height;
-  }
-
-  if (isLeftOutOfLayout(left, layoutRect, popupRect)) {
-    left = layoutRect.left + layoutRect.width - popupRect.width;
-  }
+  const top = layoutRect.height / 2 - popupRect.height / 2;
+  const left = layoutRect.width / 2 - popupRect.width / 2;
+  const direction = FormPopupArrowDirection.bottom;
 
   return {
-    top: top + window.scrollY - layoutRect.top,
-    left: Math.max(left, layoutRect.left) + window.scrollX - layoutRect.left,
+    top,
+    left,
     direction,
   };
+
 }
 
 function isBooleanKey(key: string): key is BooleanKeyOfEventObject {
@@ -214,7 +202,7 @@ export function EventFormPopup() {
             formStateDispatch={formStateDispatch}
             ref={datePickerRef}
           />
-          <EventStateSelector eventState={formState.state} formStateDispatch={formStateDispatch} />
+          {/* <EventStateSelector eventState={formState.state} formStateDispatch={formStateDispatch} /> */}
           <ClosePopupButton type="form" close={close} />
           <PopupSection>
             <ConfirmPopupButton>

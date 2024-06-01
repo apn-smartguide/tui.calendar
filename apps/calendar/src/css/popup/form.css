@@ -47,10 +47,21 @@
 
 .dropdown-section {
   position: relative;
+  padding: 20px 0 10px 0;
 }
 
 .dropdown-section.calendar-section {
-  width: 176px;
+  /*width: 176px;*/
+  width: 440px;
+}
+.dropdown-section.calendar-section .popup-button {
+  width: 440px;
+  text-align: left;
+  width: 440px;
+}
+.dropdown-section.calendar-section .popup-button .ic-dropdown-arrow {
+  float: right;
+  margin-top:10px;
 }
 
 .dropdown-section .content {
@@ -69,7 +80,7 @@
 }
 
 .content.event-calendar {
-  width: 125px;
+  width: 380px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -178,6 +189,7 @@
   top: -1px;
 }
 
+/*
 .popup-arrow.top .popup-arrow-border {
   border-top: none;
   border-right: 8px solid transparent;
@@ -212,3 +224,4 @@
   left: -7px;
   bottom: 1px;
 }
+*/

@@ -46,6 +46,16 @@ export function createMockMonthViewEvents(baseDate?: string): MockedMonthViewEve
       start: thirdThursday,
       end: thirdSaturday,
     },
+    {
+      id: '3',
+      calendarId: 'cal1',
+      title: 'event - full',
+      start: thirdThursday,
+      end: thirdSaturday,
+      location: 'This is location',
+      attendees : ['dmichaud@alphinat.com', 'cpage@alphinat.com', 'hroussel@alphinat.com', 'felton@alphinat.com', 'mahtab@alphinat.com', 'ltran@alphinat.com', 'jeremy.boulet@alphinat.com'],
+      body: 'This is event body, blabla... blabla... blabla... blabla...',
+    },
   ];
 
   for (let i = 0; i < 10; i += 1) {

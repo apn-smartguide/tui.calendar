@@ -12,6 +12,7 @@ import { EventStateSelector } from '@src/components/popup/eventStateSelector';
 import { LocationInputBox } from '@src/components/popup/locationInputBox';
 import { PopupSection } from '@src/components/popup/popupSection';
 import { TitleInputBox } from '@src/components/popup/titleInputBox';
+import { AttendeeTextarea } from '@src/components/popup/attendeeTextarea';
 import { Template } from '@src/components/template';
 import {
   BOOLEAN_KEYS_OF_EVENT_MODEL_DATA,
@@ -137,6 +138,7 @@ export function EventFormPopup() {
           isPrivate: popupParams.isPrivate,
           calendarId: event.calendarId,
           state: popupParams.eventState,
+          attendees : popupParams.attendees,
         },
       });
     }
@@ -165,12 +167,17 @@ export function EventFormPopup() {
 
     eventData.start = new TZDate(datePickerRef.current?.getStartDate());
     eventData.end = new TZDate(datePickerRef.current?.getEndDate());
-
+    const eventDataStr = String(eventData['attendees']);
+    if (eventDataStr) {
+      const attendees = eventDataStr.split(';').map((name: string) => name.trim()).filter((name: string | any[]) => name.length > 0);
+      eventData.attendees = attendees; 
+    } else {
+      eventData.attendees = []; 
+    }
     if (isCreationPopup) {
       eventBus.fire('beforeCreateEvent', eventData);
     } else if (event) {
       const changes = getChanges(event, eventData);
-
       eventBus.fire('beforeUpdateEvent', { event: event.toEventObject(), changes });
     }
     hideAllPopup();
@@ -192,6 +199,10 @@ export function EventFormPopup() {
           <TitleInputBox
             title={formState.title}
             isPrivate={formState.isPrivate}
+            formStateDispatch={formStateDispatch}
+          />
+          <AttendeeTextarea
+            attendees={formState.attendees}
             formStateDispatch={formStateDispatch}
           />
           <LocationInputBox location={formState.location} formStateDispatch={formStateDispatch} />

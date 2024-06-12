@@ -26,6 +26,7 @@ function Wrapper({
   children,
   title,
   location,
+  attendees,
   start,
   end,
   isAllday,
@@ -37,6 +38,7 @@ function Wrapper({
     isCreationPopup,
     title,
     location,
+    attendees,
     start,
     end,
     isAllday,
@@ -50,6 +52,7 @@ const Template: Story<EventFormPopupStoryProps> = ({
   calendars,
   title,
   location,
+  attendees,
   start,
   end,
   isAllday = false,
@@ -59,6 +62,7 @@ const Template: Story<EventFormPopupStoryProps> = ({
     <Wrapper
       title={title}
       location={location}
+      attendees = {attendees}
       start={start}
       end={end}
       isAllday={isAllday}

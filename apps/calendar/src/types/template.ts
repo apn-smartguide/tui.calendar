@@ -85,6 +85,7 @@ export interface Template {
   popupStateBusy: () => TemplateReturnType;
   titlePlaceholder: () => TemplateReturnType;
   locationPlaceholder: () => TemplateReturnType;
+  attendeePlaceholder: () => TemplateReturnType;
   startDatePlaceholder: () => TemplateReturnType;
   endDatePlaceholder: () => TemplateReturnType;
   popupSave: () => TemplateReturnType;

@@ -28,6 +28,7 @@ export type FormStateDispatcher = (action: FormStateAction) => void;
 const defaultFormState: EventObject = {
   title: '',
   location: '',
+  attendees : [],
   isAllday: false,
   isPrivate: false,
   state: 'Busy',

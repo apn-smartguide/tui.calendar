@@ -137,6 +137,7 @@ export function useGridSelection<DateCollection>({
           isCreationPopup: true,
           title: '',
           location: '',
+          attendees: [],
           start: startDate,
           end: endDate,
           isAllday: type !== 'timeGrid',

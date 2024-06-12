@@ -853,13 +853,14 @@ export default abstract class CalendarCore
     const { showFormPopup } = this.getStoreDispatchers().popup;
 
     const eventModel = new EventModel(event);
-    const { title, location, start, end, isAllday, isPrivate, state: eventState } = eventModel;
+    const { title, location, start, end, isAllday, isPrivate, state: eventState, attendees } = eventModel;
 
     showFormPopup({
       isCreationPopup: true,
       event: eventModel,
       title,
       location,
+      attendees,
       start,
       end,
       isAllday,

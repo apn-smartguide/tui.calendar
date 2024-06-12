@@ -37,6 +37,7 @@ describe('event form popup', () => {
         isCreationPopup: true,
         title: '',
         location: '',
+        attendees : [],
         start,
         end,
         isAllday,

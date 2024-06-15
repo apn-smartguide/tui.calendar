@@ -94,6 +94,11 @@
   top: 0;
 }
 
+.template-popupDetailBody {
+  max-height:150px;
+  overflow: auto;
+  display:block;
+}
 /*
 .popup-arrow.left .popup-arrow-border {
   border-top: 8px solid transparent;

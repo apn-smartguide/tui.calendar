@@ -29,6 +29,7 @@ const defaultFormState: EventObject = {
   title: '',
   location: '',
   attendees : [],
+  body: '',
   isAllday: false,
   isPrivate: false,
   state: 'Busy',

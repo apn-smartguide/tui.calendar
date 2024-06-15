@@ -86,6 +86,7 @@ export interface Template {
   titlePlaceholder: () => TemplateReturnType;
   locationPlaceholder: () => TemplateReturnType;
   attendeePlaceholder: () => TemplateReturnType;
+  eventBodyPlaceholder: () => TemplateReturnType;
   startDatePlaceholder: () => TemplateReturnType;
   endDatePlaceholder: () => TemplateReturnType;
   popupSave: () => TemplateReturnType;

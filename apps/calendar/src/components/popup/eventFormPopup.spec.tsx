@@ -38,6 +38,7 @@ describe('event form popup', () => {
         title: '',
         location: '',
         attendees : [],
+        body : '',
         start,
         end,
         isAllday,

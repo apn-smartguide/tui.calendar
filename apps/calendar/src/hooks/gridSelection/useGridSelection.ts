@@ -138,6 +138,7 @@ export function useGridSelection<DateCollection>({
           title: '',
           location: '',
           attendees: [],
+          body: '',
           start: startDate,
           end: endDate,
           isAllday: type !== 'timeGrid',

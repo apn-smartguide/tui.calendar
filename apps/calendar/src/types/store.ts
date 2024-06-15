@@ -41,6 +41,7 @@ export interface EventFormPopupParam extends BasePopupParam {
   title: string;
   location: string;
   attendees: string[],
+  body : string;
   start: TZDate;
   end: TZDate;
   isAllday: boolean;

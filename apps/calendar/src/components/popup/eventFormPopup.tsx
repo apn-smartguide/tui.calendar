@@ -13,6 +13,7 @@ import { LocationInputBox } from '@src/components/popup/locationInputBox';
 import { PopupSection } from '@src/components/popup/popupSection';
 import { TitleInputBox } from '@src/components/popup/titleInputBox';
 import { AttendeeTextarea } from '@src/components/popup/attendeeTextarea';
+import { EventBodyTextarea } from '@src/components/popup/eventBodyTextarea';
 import { Template } from '@src/components/template';
 import {
   BOOLEAN_KEYS_OF_EVENT_MODEL_DATA,
@@ -49,7 +50,7 @@ function calculatePopupPosition(
   layoutRect: Rect,
   popupRect: Rect
 ) {
-  const top = layoutRect.height / 2 - popupRect.height / 2;
+  const top = layoutRect.height / 2 - popupRect.height;
   const left = layoutRect.width / 2 - popupRect.width / 2;
   const direction = FormPopupArrowDirection.bottom;
 
@@ -139,6 +140,7 @@ export function EventFormPopup() {
           calendarId: event.calendarId,
           state: popupParams.eventState,
           attendees : popupParams.attendees,
+          body: event.body,
         },
       });
     }
@@ -212,6 +214,10 @@ export function EventFormPopup() {
             isAllday={formState.isAllday}
             formStateDispatch={formStateDispatch}
             ref={datePickerRef}
+          />
+          <EventBodyTextarea
+            body={formState.body}
+            formStateDispatch={formStateDispatch}
           />
           {/* <EventStateSelector eventState={formState.state} formStateDispatch={formStateDispatch} /> */}
           <ClosePopupButton type="form" close={close} />

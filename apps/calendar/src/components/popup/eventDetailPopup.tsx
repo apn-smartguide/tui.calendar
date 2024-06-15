@@ -37,7 +37,7 @@ const classNames = {
 };
 
 function calculatePopupPosition(eventRect: Rect, layoutRect: Rect, popupRect: Rect) {
-  const top = layoutRect.height / 2 - popupRect.height / 2;
+  const top = layoutRect.height / 2 - popupRect.height;
   const left = layoutRect.width / 2 - popupRect.width / 2;
   return [top, left];
 }
@@ -109,6 +109,7 @@ export function EventDetailPopup() {
     end = new TZDate(),
     location,
     attendees,
+    body,
     state,
     isReadOnly,
     isPrivate,
@@ -127,6 +128,7 @@ export function EventDetailPopup() {
         title,
         location,
         attendees,
+        body,
         start,
         end,
         isAllday,
